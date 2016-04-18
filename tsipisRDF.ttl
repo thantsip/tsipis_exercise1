@@ -1,0 +1,38 @@
+PREFIX voc: <http://dilab77.ionio.gr/swp/tsipis/vocab#> 
+
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
+PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
+PREFIX xsd: <http://www.w3.org/2001/XMLSchema#>
+
+PREFIX foaf: <http://xmlns.com/foaf/>
+
+voc:Instructor rdf:type rdfs:Class .
+voc:Lecture rdf:type rdfs:Class .
+voc:Classroom rdf:type rdfs:Class .
+voc:Lesson rdf:type rdfs:Class .
+
+voc:Instructor rdfs:subClassOf foaf:Person . 
+
+voc:is_taught_on rdf:type rdfs:Property .
+voc:is_taught_on rdfs:domain voc:Lecture .
+voc:is_taught_on rdfs:range xsd:date .
+
+voc:starts_at rdf:type rdfs:Property .
+voc:starts_at rdfs:domain voc:Lecture .
+voc:starts_at rdfs:range xsd:time .
+
+voc:ends_at rdf:type rdfs:Property .
+voc:ends_at rdfs:domain voc:Lecture .
+voc:ends_at rdfs:range xsd:time .
+
+voc:is_taught_by rdf:type rdfs:Property .
+voc:is_taught_by rdfs:domain voc:Lecture .
+voc:is_taught_by rdfs:range voc:Instructor .
+
+voc:takes_place_in rdf:type rdfs:Property .
+voc:takes_place_in rdfs:domain voc:Lecture .
+voc:takes_place_in rdfs:range voc:Classroom .
+
+voc:is_taught_during rdf:type rdfs:Property .
+voc:is_taught_during rdfs:domain voc:Lecture .
+voc:is_taught_during rdfs:range xsd:string .
